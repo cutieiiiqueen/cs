@@ -1,0 +1,22 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+/*ANIMATION BANNER*/
+.leftside {
+margin-left:5%;
+width: 10%;
+float:left;
+}
+#categoryList{
+	height:200px;
+	display: flex;
+	flex-direction: column; 		/* 設定主軸為垂直方向 */
+	justify-content: space-between; 	/* 在主軸上置中 */
+	align-items: center;
+}
+#categoryList a{text-decoration: none;}
+#categoryList a:link{color: black;}
+#categoryList a:visited{color: black;}	
+#categoryList a:hover{color: rgb(208,79,24);}
+#categoryList a:active{color: rgb(208,79,24);}	

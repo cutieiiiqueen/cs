@@ -1,0 +1,578 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: 'MyFont';
+    src: url('/cs/font/GenSenMaruGothicTW-Medium.ttf') format('truetype');
+}
+*{
+	font-family: "Noto Sans TC", sans-serif, Arial, "文泉驛正黑", "WenQuanYi Zen Hei", "儷黑 Pro", "LiHei Pro", 
+	 "微軟正黑體", "Microsoft JhengHei", "標楷體", DFKai-SB, sans-serif;
+}
+/*共用的 CSS start*/
+body{
+	margin: 0;
+	padding: 0;	
+  	min-height: 100vh;
+ 	display: flex;
+  	flex-direction: column;
+  	background: #fffdf4;
+}
+header, footer {
+  	flex-shrink: 0;
+}
+article{
+	margin: 150px 0 0 0;
+	flex: 1 0 auto;
+}
+.errorsDiv{
+    text-align: center;	
+    font-weight: bold;
+    color: red;
+}
+/*共用的 CSS end*/
+
+
+/*header CSS start*/
+header{
+	height: 120px;
+    width: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+	position: fixed;
+    z-index: 3;
+    background: rgb(255,204,0);    
+}
+header .navContainer{
+    margin: 10px;
+    margin-top: 20px;
+    padding: 0 10px;
+    height: 80px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    box-shadow: 20px 40px 40px #00000033;
+    background: hsl(0, 0%, 98%);
+    border-radius: 10em;
+    position: fixed;
+    left: 50%;
+    z-index: 3;
+}
+header .logo{
+	position: fixed;
+	left: 50px;
+	top: 25px;
+}
+header .logo img {width: 200px;}
+header .searchContainer {
+	width: 300px;
+    height: 50px;
+    position: fixed;
+    left: 300px;
+    top: 35px;
+    border-radius: 10em;
+    background-color: rgb(255 204 0);
+    /* box-shadow: 0 0px 20px 0px rgb(255 204 0 / 60%), -1px 0px 0px 10px #fff;*/
+    border: 5px solid #fff;
+    box-shadow: 0px 5px 0 0 rgb(200, 150, 0);
+}
+header .searchContainer:hover{
+	transform: translateY(5px);
+    box-shadow: inset 0 0 5px 1px rgb(200, 150, 0);
+}
+header .searchBar{
+    height: 80%;
+    width: 80%;
+    color: #8f36367e;
+    border: 0;
+    background-color: transparent;
+    font-size: 1.5em;
+    padding: 6px 15px;
+    overflow: hidden;
+    font-weight: bold;
+}
+header .searchBar:focus{
+	outline: none;	
+	font-weight: bold;
+}
+header .searchBar:not(:placeholder-shown) {
+    outline: none;
+    font-weight: bold;
+}
+header .searchBar::placeholder {
+    color: #8f36367e;
+    font-weight: bold;
+}
+header .searchContainer a {
+	display: flex;
+    font-size: 40px;
+    position: absolute;
+    left: 200px;
+    top: 0px;
+    color: #fff;
+    text-decoration: none;
+}
+header .searchContainer a .fa {
+    margin: 5px 0px;
+    transition: .3s;
+}
+
+header .searchContainer a .fa-search {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+header .searchContainer a .fa-hand-o-right {
+    transform: translateX(0px);
+    opacity: 0;
+}
+
+header .searchContainer a:hover .fa-search {
+    transform: translateX(80px);
+    opacity: 0;
+}
+
+header .searchContainer a:hover .fa-hand-o-right {
+    transform: translateX(40px);
+    opacity: 1;
+}
+header .searchContainer a::before {
+	content: 'GO!';
+    position: absolute;
+    display: block;
+    font-size: 20px;
+    background-color: #fff;
+    padding: 2px 15px;
+    top: 30px;
+    margin: 0;
+    right: -20px;
+    border-radius: 10px;
+    transition: .3s;
+    opacity: 0;
+    animation: box 1s infinite ease;
+    color: rgb(255 204 0);
+}
+
+header .searchContainer a:hover::before{
+    top: -30px;
+    opacity: 1;
+}
+#myName{
+	position: fixed;
+    left: 0px;
+    bottom: 0px;
+}
+/*取消預設搜尋框的x*/
+input[type="search"]::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+}
+
+input[type="search"]::-moz-search-cancel-button {
+    -moz-appearance: none;
+}
+
+input[type="search"]::-ms-clear {
+    display: none;
+}
+
+@keyframes box {
+    0%{
+        transform: rotate(0deg);
+    }
+    33%{
+        transform: rotate(8deg);
+    }
+    66%{
+        transform: rotate(-8deg);
+    }
+    100%{
+        transform: rotate(0deg);
+    }
+}
+header .nav {
+	position: relative;
+    display: flex;
+    list-style: none;
+    padding: 10px;
+    font-weight: bold;
+}
+
+header .nav li a {
+	position: relative;
+	padding: 5px 20px;
+	font-size: 1.2vw;
+	color: rgb(208, 79, 24);
+	display: inline-block;
+	text-decoration: none;
+	z-index: 2;
+}
+
+header .nav li a.textcolor {
+	color: #1d2129;
+}
+
+header .nav .slide {
+    position: absolute;
+    margin-top: 18px;
+    height: 15px;
+    border-radius: 10em;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1.05);
+    background-color: rgb(255 204 0 / 70%);
+    z-index: 1;
+}
+
+header .nav_sub {
+	padding: 0;
+	display: inline-flex;
+	list-style: none;
+	margin-right: 15px;
+	margin-left: 20px;
+}
+header .nav_sub li {
+    width: 30px;
+    height: 30px;	
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5px;
+    padding: 8px; 
+    background: rgb(255, 204, 0);
+    box-shadow: 0px 5px 0 0 rgb(200, 150, 0);
+    border-radius: 50px;
+    position: relative;
+}
+
+header .nav_sub li:hover {
+    box-shadow: 0 0 0 0 #444;
+    transform: translateY(5px);
+							   
+}
+header .nav_sub .cartIcon, .nav_sub .memberIcon, .nav_sub .mailIcon{
+	color: black;	
+    font-size: 1.5em;
+}
+header .nav_cart {
+    text-decoration: none;
+    position: relative;
+}
+
+header .nav_cart sup {
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: -17px; 
+    right: -17px;
+    z-index: 2;
+}
+
+header .nav_cart .cartNum {
+	display: none;
+    background-color: red;
+    border-radius: 50%;
+    color: white;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    margin: 0;
+    padding: 2px;
+    position: absolute;
+    top: -17px; 
+    right: -17px;
+}
+
+header .nav_member {
+    position: relative;
+    z-index: 1;
+}
+header .nav_member:hover .memberDropdown {
+    display: block;
+}
+header .memberDropdown {
+	display: none;
+    width: 100px;
+    position: absolute;
+    left: 5px;
+    top: 45px;
+    background-color: white;
+    /* border: 1px solid #ccc; */
+    box-shadow: 5px 5px 0px #c79600;
+    /*border-radius: 5px;*/
+    font-size: 1em;
+    line-height: 10px;
+    padding: 5px;
+ }
+header .memberDropdown a {
+    padding: 10px;
+    display: block;
+    text-decoration: none;
+    color: black;
+}
+header .memberDropdown a:hover {
+    background-color: #f0f0f0;
+}
+
+header .welcomeSpan{
+	position: absolute;
+	right: -20%;
+	display: none;
+}
+header  .responsive-nav {
+    display: none;
+}
+
+/*header CSS end*/
+
+
+
+/*footer CSS start*/
+footer{
+	clear: both;
+	width: 100%;
+	height: 200px;
+}
+footer .footerContainer{
+    background: rgb(255 253 244);
+    display: flex;
+    padding: 10px 15px 20px 15px;
+    justify-content: space-evenly;
+    border-bottom: 20px solid rgb(255, 204, 0);
+}
+footer .brand, .access, .follow{
+	width: 25%;
+	height: 140px;
+	border: 5px solid #444;
+	border-radius: 15px;
+	box-shadow: 5px 5px rgb(200, 150, 0);;
+}
+footer .head{
+	background: rgb(255,204,0);
+    border-radius: 10px 10px 0 0;
+    font-size: x-large;
+    text-align: center;
+    font-weight: 700;
+    color: #444;
+    height: 40px;
+}
+footer .brand .brandContainer{
+	display: flex;
+	align-items: flex-start;
+}
+footer .brand .brandContainer img{
+	width: 200px;
+	margin: 10px;
+	border: 1px solid ;
+	display: inline-block;
+	background: rgb(255,204,0);
+	padding: 5px;
+}
+footer .brand .brandContainer .text{
+	display: flex;
+	flex-direction: column;
+	margin-top: 10px;
+}
+footer .brand .brandContainer .text p{
+	margin: 0px;
+}
+footer .access h3{
+	margin-bottom: 8px;
+	margin-right: 8px;
+	display: inline-block;
+}
+footer .access p{
+	margin: 5px;
+	margin-left:2em;
+}
+footer #goTop{
+	width: 80px;
+	height: 80px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	bottom: 40px;
+	right: 40px;
+	background: rgb(255,204,0);
+	border-radius: 50%;
+	cursor: pointer;
+	border: 5px solid #444;
+}
+/*footer CSS end*/
+
+
+
+
+
+@media only screen and (max-width: 1300px) {
+	header .navContainer, .searchContainer {
+        display: none;
+    }			
+    header  .responsive-nav {
+        display: block;
+    }
+	header .responsive-nav .menu-toggle{
+	    font-size: 1.5em;			
+	}
+	header header .responsive-nav .menu-toggle:hover{
+		box-shadow: 0 0 0;					
+	    transform: translateY(5px);
+	}
+	header .nav_sub {
+        display: inline-flex;
+        flex-direction: row-reverse;
+        position: fixed;
+        top: 4.5%;
+        right: 3%;
+        align-items: center;
+        margin: 0;
+	}
+	header .nav_sub li {
+		width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 5px;
+        padding: 8px;
+        background: rgb(255 204 0);
+        box-shadow: 0px 5px 0 0 rgb(200 150 0);
+        border-radius: 50px;
+        position: relative;
+        border: 5px solid white;
+        cursor: pointer;
+	}
+	
+	header .nav_sub li:hover {
+	    box-shadow: 0 0 0 0 #444;
+	    transform: translateY(5px);											   
+	}
+	header .nav_sub .cartIcon, .nav_sub .memberIcon, .nav_sub .mailIcon{
+		color: black;	
+	    font-size: 1.5em;
+	}
+	header .nav_cart {
+	    text-decoration: none;
+	    position: relative;
+	}
+	
+	header .nav_cart sup {
+	    font-size: 14px;
+	    font-weight: bold;
+	    text-align: center;
+	    display: flex;
+	    justify-content: center;
+	    align-items: center;
+	    position: absolute;
+	    top: -17px; 
+	    right: -17px;
+	    z-index: 2;
+	}
+
+	header .nav_cart .cartNum {
+		display:none;
+	    background-color: red;
+	    border-radius: 50%;
+	    color: white;
+	    width: 20px;
+	    height: 20px;
+	    text-align: center;
+	    margin: 0;
+	    padding: 2px;
+	    position: absolute;
+	    top: -17px; 
+	    right: -17px;
+	}
+	
+	header .nav_member {
+	    position: relative;
+	    z-index: 1;
+	}
+	header .nav_member:hover .memberDropdown {
+	    display: block;
+	}
+	header .memberDropdown {
+        width: 100px;
+        position: absolute;
+		left: -28px;
+        top: 50px;
+        background-color: white;
+        box-shadow: 0 0 0;
+        border-radius: 5px;
+        font-size: 1em;
+        line-height: 10px;
+        padding: 5px;
+	 }
+	header .memberDropdown a {
+	    padding: 10px;
+	    display: block;
+	    text-decoration: none;
+	    color: black;
+	}
+	header .memberDropdown a:hover {
+	    background-color: #f0f0f0;
+	}
+	
+	header .welcomeSpan{
+		position: absolute;
+		right: -20%;
+		display: none;
+	}
+	header .nav {
+		background: white;
+	    display: flex;
+	    flex-direction: column;
+	    height: 100vh;
+	    position: fixed;
+	    z-index: -1;
+	    margin: 0;
+	    padding-top: 120px;
+	    letter-spacing: 10px;
+	    right: -250px;
+		transform: translateX(100%);
+		transition: 500ms;
+	}
+	header .show{
+	    right: 0;
+	    transform: translateX(0%);
+	    transition: 500ms;
+		
+	}
+	header .nav li a {
+		position: relative;
+		padding: 5px 20px;
+		font-size: 1.2em;
+		color: rgb(208, 79, 24);
+		display: inline-block;
+		text-decoration: none;
+		z-index: 2;
+	}
+	
+	header .nav li a:hover {
+		color: #1d2129;
+	}
+	header .nav .searchBar2{
+		border-radius: 115px;
+        height: 4vw;
+        padding: 10px;
+        width: 150px;
+        font-size: 1em;
+        color: #000;
+        margin: 5px 0 5px 15px;
+        border: 5px solid #d04f18;
+        font-weight: 800;
+    }
+    header .nav .searchBar2:focus{
+		outline: none;
+    }
+    header .searchSubmitBtn{
+    	background: none;
+    	font-size: 1.2em;
+	    position: relative;
+	    left: -55px;
+	    color: #d04f18;
+	    cursor: pointer;
+	    border: none;
+    }

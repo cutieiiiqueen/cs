@@ -1,0 +1,270 @@
+body{
+	margin: 0;
+	padding: 0;
+	/*100%視窗高度*/
+	height: 100vh;
+	/*flex 水平+垂直置中*/
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	/*漸層背景*/	
+	background: linear-gradient(236deg, #e2a66733, #d5602f1c);
+}
+.container{
+	background-color: #fff;
+	width: 850px;
+	height: 550px;
+	border-radius: 5px;
+	/*陰影*/
+	box-shadow: 5px 5px 5px rgba(0,0,0,0.1);
+	/*相對定位*/
+	position: relative;
+}
+.form-box{
+	/*絕對定位*/
+	position: absolute;
+	top: -13%;
+	left: 5%;
+	background-color: #e2a667;
+	width: 400px;
+	height: 700px;
+	border-radius: 5px;
+	box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 2;
+	/*元素改變效果過渡 加速後減速*/
+	transition: 0.5s ease-in-out;
+}
+.register-box{
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.login-box{
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+.hidden{
+	display: none;
+	/*元素改變效果過渡*/
+	transition: 0.5s;
+}
+h1{
+	text-align: center;
+	margin-bottom: 25px;
+	/*大寫*/
+	text-transform: uppercase;
+	color: #fff;
+	/*字元間距*/
+	letter-spacing: 5px;
+	
+}
+.form-box .login-box p{
+    margin: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+.form-box .register-box p{
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 300px;
+}
+
+.form-box label{
+    color: #fff;
+    font-size: 12px;
+    padding: 0 5px;
+    width: 70px;
+}
+.form-box span{
+	background-color: #fff;
+	color: #d5602f;
+	border-radius: 15px;
+	margin: 0 0 0 3px;
+	font-size: 12px;
+	padding: 2px;
+}
+#addressspan{
+	display: none;
+}
+
+#captchaImg{
+	padding: 15px 10px;
+}
+input:not([type='radio']) , textarea{
+	background-color: transparent;
+    width: 200px;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+    padding: 10px 0px;
+    text-indent: 10px;
+    margin: 5px 0;
+}
+input::placeholder{
+	color: #fff;
+}
+input:focus , textarea:focus{
+	color: black;
+	outline: none;
+	border-bottom: 1px solid #d5602f80;
+	transition: 0.5s;
+	background-color: white;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active{
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
+input:focus::placeholder{
+	opacity: 0;
+}
+/* radio start*/
+input[type="radio"] {
+  display: none;
+}
+input[type="radio"] + label {
+	width: 31px;
+    text-align: center;
+    color: #fff;
+    font-size: 12px;
+    letter-spacing: 2px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    margin: 5px 8px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    display: inline-block;
+}
+input[type="radio"]:checked + label {
+  background-color: #d5602f;
+  color: #fff;
+  border-color: #d5602f;
+}
+/* radio end*/
+
+/* 修改input[type="date"] 外觀 start*/
+input[type="date"]::-webkit-datetime-edit {
+    background-color: transparent;
+    color: #fff;
+}
+input[type="date"]::-webkit-calendar-picker-indicator {
+	background: url('../images/date.png') no-repeat center center; /* 自定義圖示路徑 */
+	background-size: contain;
+	color: transparent;
+	opacity: 1; /* 確保圖示可見 */
+	width: 13px; /* 調整圖示寬度 */
+	height: 13px; /* 調整圖示高度 */
+	cursor: pointer;
+	padding: 0 20px;
+}
+/* 修改input[type="date"] 外觀 end*/
+
+/*眼睛的樣式*/
+#showpassword{
+    width: 15px;
+    height: 15px;
+    appearance: none;
+    background:url(../images/eye_open.png) no-repeat top center;
+    background-size:15px 15px;
+    border: 0;
+}
+/*眼睛點擊後的樣式*/
+#showpassword:checked{
+    background:url(../images/eye_close.png) no-repeat top center;
+    background-size:15px 15px;
+    border: 0;
+}
+
+/*登入註冊button的樣式*/
+.form-box button{
+	width: 70%;
+    margin-top: 35px;
+    background-color: #f6f6f6;
+    outline: none;
+    border-radius: 8px;
+    padding: 13px;
+    color: #d5602f;
+    letter-spacing: 2px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+/*登入註冊button滑過的樣式*/
+.form-box button:hover{
+	background-color: #d5602f;
+	color: #ffffff;
+	transition: background-color 0.5s ease;
+	font-weight: bold;
+}
+.con-box{
+	width: 50%;
+	/*flex 垂直排列 置中*/
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	/*絕對定位 置中*/
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+}
+.con-box.left{
+	left: -1%;
+}
+.con-box.right{
+	right: -2%;
+}
+.con-box h2{
+	color: gray;
+	font-size: 25px;
+	font-weight: bold;
+	letter-spacing: 3px;
+	text-align: center;
+	margin-bottom: 4px;
+}
+.con-box p{
+	font-size: 12px;
+	letter-spacing: 2px;
+	color: gray;
+	text-align: center;
+}
+.con-box span{
+	color: chocolate; /*burlywood chocolate darkorange darksalmon*/
+}
+.con-box img{
+	width: 150px;
+	height: 150px;
+	opacity: 0.9;
+	margin: 35px 0;
+}
+.con-box button{
+	margin-top: 3%;
+	background-color: #fff;
+	color: #d5602f;
+	border: 1px solid #d5602f;
+	padding: 6px 10px;
+	border-radius: 5px;
+	letter-spacing: 1px;
+	outline: none;
+	cursor: pointer;
+	margin-bottom: 20px;
+}
+.con-box button:hover{
+	background-color: #d5602f;
+	color: #fff;
+}
+

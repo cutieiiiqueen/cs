@@ -1,0 +1,208 @@
+@charset "UTF-8";
+			header{
+				width: 100%;
+				margin: auto;
+				display: flex;
+				justify-content: center;
+				position: fixed;
+				z-index: 3;
+				height: 120px;
+			}
+			body{
+				background: #fffdf4;
+			}
+			article{
+			    display: flex;
+			    justify-content: center;
+			    flex-direction: row;
+			    align-items: flex-start;
+			    min-height: 100vh;
+			    height: 2000px;
+			}
+			.leftside {
+				width: 200px;
+			    position: sticky;
+			    top: 10vh;
+			    margin-right: 100px;
+			    height: 500px;
+			}			
+			#categoryList{
+			    height: 250px;
+			    display: flex;
+			    flex-direction: column;
+			    justify-content: space-between;
+			    margin-bottom: 30px;
+			}
+			#categoryList ul{
+				list-style-position: outside;
+				margin: 0;
+				display: flex;
+	            flex-direction: column;
+	            padding: 0;
+	            margin: 0;
+			}
+			#categoryList li{
+				list-style: none;
+				margin: 10px;
+			}
+			#categoryList li a{
+				position: relative;
+				font-size: 20px;
+				color: rgb(208, 79, 24);
+				display: inline-block;
+				text-decoration: none;
+				z-index: 2;
+				font-weight: bold;
+			}
+			#categoryList li a.textcolor {
+				color: #444;				
+			}			
+			.slideForCategory {
+			    position: absolute;
+			    height: 15px;
+			    border-radius: 10em;
+			    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1.05);
+			    background-color: rgb(255 204 0 / 70%);
+			    z-index: 1;
+			}
+			input[type='number']{
+				border: 1px solid gray;
+			    width: 80px;
+			    height: 30px;
+			    border-radius: 5px;
+			    box-sizing: border-box;
+			    padding: 10px;				    
+			}			
+			#searchbtn{
+			    width: 60px;
+			    height: 30px;
+			    margin-top: 10px;
+			    border: 1px solid rgb(255, 204, 0);
+			    border-radius: 5px;
+			    box-sizing: border-box;
+			    text-align: center;
+			    color: #444444;
+			    background: rgb(255 204 0);
+			    cursor: pointer;
+			    font-weight: bold;
+			    box-shadow: 0px 5px 0 #c79600;
+			    font-size: 14px;
+			}
+			#searchbtn:hover{
+			    transform: translateY(5px);
+			    box-shadow: 0px 0px 0px;
+			}
+			#message h2{
+				text-align: center;
+				margin-top: 50px;
+			}
+			.rightside{
+			    position: relative;
+			    margin: 0 20px;
+			    padding-top: 20px;
+			    width: 1135px;
+			    display: flex;
+   				flex-direction: column;
+			}
+			.rightside_top{
+				display: flex;
+				flex-direction: row;
+    			justify-content: flex-start;
+			}
+			.productPhotoDiv{
+				float:left;
+				width:600px;
+				margin:0px 10px;
+			}
+			#productPhoto{
+				width:500px;
+				margin: auto;
+				display: block;
+				background: #fff;
+				border: 1px solid #444;
+			}
+			.productInfo{
+				display: flex;
+				flex-direction: column;
+			}
+			.productInfo h3{
+				font-size: x-large;
+    			font-weight: 400;
+			}
+			#categoryText a{
+				background: #c79600;
+				color: white;
+				padding: 0 5px;
+				text-decoration: none;
+			}
+			#discount, #price{
+				font-size:x-large;
+			}
+			.specDiv select{
+				background-color: #f4efed;
+			    cursor: pointer;
+			    font-size: 1em;
+			    padding: 10px;
+			}
+			.specDiv, .qtyDiv{
+				margin-top: 30px;
+			}
+			#addCartBtn, #checkOutBtn, #addTrackBtn{
+				margin-top: 50px;
+			}
+			.qtyDiv input[type=number]::-webkit-inner-spin-button,
+			.qtyDiv input[type=number]::-webkit-outer-spin-button {
+			    -webkit-appearance: none;
+			    margin: 0;
+			}
+			.qtyDiv input{
+			    border: none;
+			    border-bottom: .25em solid #f4efed;
+			    font-size: 18px;
+			    width: 50px;
+			    height: 50px;			    
+			    margin: 0 30px;
+			    text-align: center;			    
+			}
+			.qtyDiv button{
+			    background-color: #f4efed;
+			    border: none;
+			    cursor: pointer;
+			    font-size: 18px;
+			    height: 50px;
+			    width: 50px;
+			    text-align: center;		
+			}
+			#addCartBtn, #checkOutBtn, #addTrackBtn{
+				width: 100px;
+			    height: 50px;
+			    background: rgb(255, 204, 0);
+			    box-shadow: 0 6px 0 0 #c79600;
+			    border: none;
+			    border-radius: 6px;
+			    font-size: medium;
+			    font-weight: 500;
+			    color: #333;
+			    margin-right: 10px;
+			}
+			#checkOutBtn{
+			    background-color: #ff8e5e;
+    			box-shadow: 0 6px 0px rgb(208 79 24);
+			}
+			#addTrackBtn{
+			    background-color: #ffa544;
+    			box-shadow: 0 6px 0px rgb(201 102 0);
+			}
+			#addCartBtn:hover, #checkOutBtn:hover, #addTrackBtn:hover{
+				box-shadow: 0 0 0;
+				transform: translateY(5px);
+				cursor: pointer;
+			}
+			label{
+				margin: 0 10px 0 0;
+			}
+			#descriptionDiv{
+				margin-top: 50px;
+			}
+			#listPrice{color:gray;text-decoration: line-through;font-weigh:12em;} /*刪除線效果*/
+			
